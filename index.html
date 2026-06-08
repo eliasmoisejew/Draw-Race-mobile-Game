@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#0d0d1a">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Draw Race</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Start Screen -->
+  <div id="screen-start" class="screen" style="display:flex">
+    <div class="logo-wrap">
+      <div class="logo-car">🏎️</div>
+      <h1 class="logo-text">DRAW<span>RACE</span></h1>
+    </div>
+    <p class="tagline">Draw your track.<br>Race your car.</p>
+    <button id="btn-play" class="btn-primary">PLAY</button>
+    <button id="btn-howto" class="btn-ghost">HOW TO PLAY</button>
+    <p class="version">v1.0 · 2026</p>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="screen-game" class="screen" style="display:none">
+    <canvas id="canvas"></canvas>
+
+    <div id="game-top-bar">
+      <button id="btn-back" class="icon-btn">✕</button>
+      <div id="timer">00:00.00</div>
+      <div style="width:44px"></div>
+    </div>
+
+    <div id="hint">
+      <div class="hint-icon">✏️</div>
+      <h3>Draw Your Track</h3>
+      <p>Hold and drag to draw your race path</p>
+    </div>
+
+    <div id="panel-ready" style="display:none">
+      <div class="track-ok">✓ Track Ready</div>
+      <button id="btn-race" class="btn-primary">START RACE!</button>
+      <button id="btn-redraw" class="btn-ghost-sm">Redraw</button>
+    </div>
+
+    <div id="panel-hud" style="display:none">
+      <div id="speedometer">
+        <span class="speed-val">0</span>
+        <span class="speed-unit">km/h</span>
+      </div>
+    </div>
+
+    <div id="countdown" style="display:none">3</div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="screen-result" class="screen" style="display:none">
+    <div class="result-card">
+      <div class="result-trophy">🏆</div>
+      <h2>FINISH!</h2>
+      <div id="res-time" class="res-big-time">00:00.00</div>
+      <div id="res-best" class="res-sub-time"></div>
+      <div id="res-stars" class="res-stars">⭐⭐⭐</div>
+      <button id="btn-replay" class="btn-primary">REPLAY TRACK</button>
+      <button id="btn-newtrack" class="btn-ghost">NEW TRACK</button>
+    </div>
+  </div>
+
+  <!-- How To Screen -->
+  <div id="screen-howto" class="screen" style="display:none">
+    <div class="howto-card">
+      <h2>HOW TO PLAY</h2>
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <b>Draw Your Track</b>
+            <p>Swipe anywhere on screen to create your race path — make it as wild as you want!</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <b>Start the Race</b>
+            <p>Tap START RACE and watch your car zoom from start to finish!</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <b>Beat Your Time</b>
+            <p>Your car slows on tight curves. Straighter paths = faster times. Beat your record!</p>
+          </div>
+        </div>
+      </div>
+      <button id="btn-back-howto" class="btn-primary">GOT IT!</button>
+    </div>
+  </div>
+
+</div>
+<script src="game.js"></script>
+</body>
+</html>
